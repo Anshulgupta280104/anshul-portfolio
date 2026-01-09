@@ -71,10 +71,10 @@ export default function Portfolio() {
             <a href="mailto:anshulgupta282004@gmail.com" className="text-purple-600 hover:text-purple-800 transition-colors">
               <Mail size={28} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 transition-colors">
+            <a href="https://www.linkedin.com/in/anshul-gupta-64a033283/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 transition-colors">
               <Linkedin size={28} />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 transition-colors">
+            <a href="https://github.com/Anshulgupta280104" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 transition-colors">
               <Github size={28} />
             </a>
           </div>
@@ -202,10 +202,10 @@ export default function Portfolio() {
                 </ul>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium">
+                <a href="https://github.com/Anshulgupta280104/react-user-crud-app" className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium">
                   <Github size={20} /> GitHub
                 </a>
-                <a href="#" className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium">
+                <a href="https://react-user-crud-app-one.vercel.app/" className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium">
                   <ExternalLink size={20} /> Live Demo
                 </a>
               </div>
@@ -308,7 +308,7 @@ export default function Portfolio() {
               Email Me
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/anshul-gupta-64a033283/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors"
@@ -317,7 +317,7 @@ export default function Portfolio() {
               LinkedIn
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/Anshulgupta280104"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors"
