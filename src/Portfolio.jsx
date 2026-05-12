@@ -12,7 +12,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-white text-gray-900">
       {/* Navigation */}
-      <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-purple-200 shadow-sm">
+      <nav className="fixed w-full bg-white/75 backdrop-blur-md z-50 border-b border-purple-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
@@ -117,32 +117,76 @@ export default function Portfolio() {
 </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 bg-purple-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-purple-200 shadow-lg hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-semibold mb-4 text-purple-700">Education</h3>
-              <p className="text-lg font-semibold mb-2 text-gray-900">Bachelor of Technology</p>
-              <p className="text-gray-700 mb-2">Computer Science and Engineering</p>
-              <p className="text-gray-600 mb-2">Bharati Vidyapeeth's College of Engineering, Delhi</p>
-              <p className="text-purple-700 font-semibold">CGPA: 8.86</p>
-              <p className="text-gray-600">Sep 2023 – June 2027</p>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl border border-purple-200 shadow-lg hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-semibold mb-4 text-purple-700">Core Competencies</h3>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Web Development (HTML, CSS, Angular, JavaScript, TypeScript)</li>
-                <li>• Software Development & Feature Implementation</li>
-                <li>• Software Testing & Quality Assurance</li>
-                <li>• UI/UX Improvement & Design Optimization</li>
-                <li>• Collaboration & Agile Exposure</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+<section
+  id="about"
+  className="relative py-20 px-4 overflow-hidden"
+>
+
+  {/* Background Image */}
+  <div
+   className="absolute inset-0 bg-cover bg-center opacity-50"
+    style={{
+      backgroundImage: "url('/1500x500.jpg')",
+    }}
+  ></div>
+
+  {/* Purple Overlay */}
+  <div className="absolute inset-0 bg-purple-100/35 backdrop-blur-[1px]"></div>
+
+  {/* Content */}
+  <div className="relative max-w-7xl mx-auto z-10">
+
+    <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">
+      About Me
+    </h2>
+
+    <div className="grid md:grid-cols-2 gap-8">
+
+      {/* Education Card */}
+      <div className="bg-white/75 p-8 rounded-2xl border border-purple-200 shadow-xl backdrop-blur-md">
+        <h3 className="text-2xl font-semibold mb-4 text-purple-700">
+          Education
+        </h3>
+
+        <p className="text-lg font-semibold mb-2 text-gray-900">
+          Bachelor of Technology
+        </p>
+
+        <p className="text-gray-700 mb-2">
+          Computer Science and Engineering
+        </p>
+
+        <p className="text-gray-600 mb-2">
+          Bharati Vidyapeeth's College of Engineering, Delhi
+        </p>
+
+        <p className="text-purple-700 font-semibold">
+          CGPA: 8.86
+        </p>
+
+        <p className="text-gray-600">
+          Sep 2023 – June 2027
+        </p>
+      </div>
+
+      {/* Competencies Card */}
+      <div className="bg-white/75 p-8 rounded-2xl border border-purple-200 shadow-xl backdrop-blur-md">
+        <h3 className="text-2xl font-semibold mb-4 text-purple-700">
+          Core Competencies
+        </h3>
+
+        <ul className="space-y-2 text-gray-700">
+          <li>• Web Development (HTML, CSS, Angular, JavaScript, TypeScript)</li>
+          <li>• Software Development & Feature Implementation</li>
+          <li>• Software Testing & Quality Assurance</li>
+          <li>• UI/UX Improvement & Design Optimization</li>
+          <li>• Collaboration & Agile Exposure</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Experience Section */}
       <section id="experience" className="py-20 px-4 bg-white">
