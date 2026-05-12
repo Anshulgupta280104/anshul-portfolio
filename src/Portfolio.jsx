@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, Menu, X, ExternalLink, Code, Briefcase, Award, Users } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X, ExternalLink, Code, Briefcase, Award, Users, Twitter } from 'lucide-react';
 
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,33 +59,62 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 bg-clip-text text-transparent">
-            Hi, I'm Anshul Gupta
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-700 mb-8">
-            Computer Science Engineering Student | Software Developer | Open Source Contributor
-          </p>
-          <div className="flex justify-center gap-6 mb-8">
-            <a href="mailto:anshulgupta282004@gmail.com" className="text-purple-600 hover:text-purple-800 transition-colors">
-              <Mail size={28} />
-            </a>
-            <a href="https://www.linkedin.com/in/anshul-gupta-64a033283/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 transition-colors">
-              <Linkedin size={28} />
-            </a>
-            <a href="https://github.com/Anshulgupta280104" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-800 transition-colors">
-              <Github size={28} />
-            </a>
-          </div>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg hover:shadow-purple-300"
-          >
-            Get In Touch
-          </button>
-        </div>
-      </section>
+<section className="pt-32 pb-20 px-4">
+  <div className="max-w-7xl mx-auto text-center">
+    <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 bg-clip-text text-transparent">
+      Hi, I'm Anshul Gupta
+    </h1>
+
+    <p className="text-xl md:text-2xl text-gray-700 mb-8">
+      Computer Science Engineering Student | Software Developer | Open Source Contributor
+    </p>
+
+    <div className="flex justify-center gap-6 mb-8">
+
+      <a
+        href="mailto:anshulgupta282004@gmail.com"
+        className="text-purple-600 hover:text-purple-800 transition-colors"
+      >
+        <Mail size={28} />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/anshul-gupta-64a033283/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-purple-600 hover:text-purple-800 transition-colors"
+      >
+        <Linkedin size={28} />
+      </a>
+
+      <a
+        href="https://github.com/Anshulgupta280104"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-purple-600 hover:text-purple-800 transition-colors"
+      >
+        <Github size={28} />
+      </a>
+
+      <a
+        href="https://x.com/AnshulBuildss"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-purple-600 hover:text-purple-800 transition-colors"
+      >
+        <Twitter size={28} />
+      </a>
+
+    </div>
+
+    <button
+      onClick={() => scrollToSection('contact')}
+      className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg hover:shadow-purple-300"
+    >
+      Get In Touch
+    </button>
+  </div>
+</section>
 
       {/* About Section */}
       <section id="about" className="py-20 px-4 bg-purple-50">
@@ -182,57 +211,203 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 bg-purple-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Featured Projects</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-purple-200 hover:border-purple-400 transition-all shadow-lg hover:shadow-xl">
-              <h3 className="text-2xl font-semibold mb-4 text-purple-700">User Management System</h3>
-              <p className="text-gray-700 mb-4">
-                Full-stack CRUD application built with React, Express.js, and MongoDB. Features search, filtering, dynamic forms, and toast notifications.
-              </p>
-              <div className="mb-4">
-                <p className="text-sm text-gray-600 mb-2 font-semibold">Impact:</p>
-                <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• 40% improved data handling</li>
-                  <li>• 55% faster task completion</li>
-                  <li>• 30% reduced development time</li>
-                </ul>
-              </div>
-              <div className="flex gap-4">
-                <a href="https://github.com/Anshulgupta280104/react-user-crud-app" className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium">
-                  <Github size={20} /> GitHub
-                </a>
-                <a href="https://react-user-crud-app-one.vercel.app/" className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium">
-                  <ExternalLink size={20} /> Live Demo
-                </a>
-              </div>
-            </div>
+     {/* Projects Section */}
+<section id="projects" className="py-20 px-4 bg-purple-50">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">
+      Featured Projects
+    </h2>
 
-            <div className="bg-white p-8 rounded-2xl border border-purple-200 hover:border-purple-400 transition-all shadow-lg hover:shadow-xl">
-              <h3 className="text-2xl font-semibold mb-4 text-purple-700">Food Menu Webpage</h3>
-              <p className="text-gray-700 mb-4">
-                Static food menu webpage showcasing items with images, descriptions, and prices in a clean, responsive layout using HTML5 and CSS3.
-              </p>
-              <div className="mb-4">
-                <p className="text-sm text-gray-600 mb-2 font-semibold">Features:</p>
-                <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• Responsive design</li>
-                  <li>• Mobile-optimized</li>
-                  <li>• Clean visual hierarchy</li>
-                </ul>
-              </div>
-              <div className="flex gap-4">
-                <a href="#" className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium">
-                  <Github size={20} /> GitHub
-                </a>
-              </div>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* Project 1 */}
+      <div className="bg-white p-8 rounded-2xl border border-purple-200 hover:border-purple-400 transition-all shadow-lg hover:shadow-xl hover:-translate-y-2">
+        <h3 className="text-2xl font-semibold mb-4 text-purple-700">
+          User Management System
+        </h3>
+
+        <p className="text-gray-700 mb-4">
+          Built a full-stack user management system with complete CRUD
+          operations using React, Express.js, and MongoDB with optimized
+          REST APIs, search, filtering, and reusable components.
+        </p>
+
+        <div className="mb-5">
+          <p className="text-sm text-gray-600 mb-2 font-semibold">
+            Impact:
+          </p>
+
+          <ul className="text-sm text-gray-700 space-y-1">
+            <li>• Improved data handling efficiency by 40%</li>
+            <li>• Enhanced user experience by 55%</li>
+            <li>• Reduced development effort by 30%</li>
+          </ul>
         </div>
-      </section>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            React
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            Express.js
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            MongoDB
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            REST API
+          </span>
+        </div>
+
+        {/* Project 1 Links */}
+<div className="flex gap-4">
+  <a
+    href="https://github.com/Anshulgupta280104/react-user-crud-app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium"
+  >
+    <Github size={20} /> GitHub
+  </a>
+
+  <a
+    href="https://react-user-crud-app-one.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium"
+  >
+    <ExternalLink size={20} /> Live Demo
+  </a>
+</div>
+      </div>
+
+
+      {/* Project 2 */}
+      <div className="bg-white p-8 rounded-2xl border border-purple-200 hover:border-purple-400 transition-all shadow-lg hover:shadow-xl hover:-translate-y-2">
+        <h3 className="text-2xl font-semibold mb-4 text-purple-700">
+          The Atelier – Finance Analytics Dashboard
+        </h3>
+
+        <p className="text-gray-700 mb-4">
+          High-performance finance analytics dashboard built using Angular
+          18+, RxJS, Chart.js, and TailwindCSS with real-time updates,
+          dynamic visualizations, and RBAC implementation.
+        </p>
+
+        <div className="mb-5">
+          <p className="text-sm text-gray-600 mb-2 font-semibold">
+            Impact:
+          </p>
+
+          <ul className="text-sm text-gray-700 space-y-1">
+            <li>• Improved UI responsiveness by 45%</li>
+            <li>• Enhanced user interaction efficiency by 40%</li>
+            <li>• Real-time reactive architecture</li>
+          </ul>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            Angular
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            RxJS
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            Chart.js
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            TailwindCSS
+          </span>
+        </div>
+
+       {/* Project 2 Links */}
+<div className="flex gap-4">
+  <a
+    href="https://github.com/Anshulgupta280104/finance-dashboard"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium"
+  >
+    <Github size={20} /> GitHub
+  </a>
+
+  <a
+    href="https://finance-dashboard-eight-self.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium"
+  >
+    <ExternalLink size={20} /> Live Demo
+  </a>
+</div>
+      </div>
+
+
+      {/* Project 3 */}
+      <div className="bg-white p-8 rounded-2xl border border-purple-200 hover:border-purple-400 transition-all shadow-lg hover:shadow-xl hover:-translate-y-2">
+        <h3 className="text-2xl font-semibold mb-4 text-purple-700">
+          Plate2People – AI Food Redistribution Platform
+        </h3>
+
+        <p className="text-gray-700 mb-4">
+          AI-powered food redistribution platform connecting NGOs,
+          volunteers, restaurants, and donors to reduce food wastage and
+          improve operational coordination through AI chatbot support.
+        </p>
+
+        <div className="mb-5">
+          <p className="text-sm text-gray-600 mb-2 font-semibold">
+            Impact:
+          </p>
+
+          <ul className="text-sm text-gray-700 space-y-1">
+            <li>• Reduced food wastage by 45%</li>
+            <li>• Improved coordination by 50%</li>
+            <li>• Smart AI chatbot integration</li>
+          </ul>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            AI Chatbot
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            UI/UX
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            Web App
+          </span>
+          <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+            Social Impact
+          </span>
+        </div>
+
+        {/* Project 3 Links */}
+<div className="flex gap-4">
+  <a
+    href="https://github.com/Anshulgupta280104/plate2people-chatbot"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium"
+  >
+    <Github size={20} /> GitHub
+  </a>
+
+  <a
+    href="https://plate2people-chatbot-mine.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-purple-600 hover:text-purple-800 font-medium"
+  >
+    <ExternalLink size={20} /> Live Demo
+  </a>
+</div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4 bg-white">
@@ -291,43 +466,63 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 text-gray-900">Let's Connect</h2>
-          <p className="text-xl text-gray-700 mb-8">
-            I'm passionate about building innovative solutions, contributing to open source, and organizing impactful tech events. Always open to collaborating on exciting projects and opportunities.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a
-              href="mailto:anshulgupta282004@gmail.com"
-              className="flex items-center justify-center gap-3 bg-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-purple-700 transition-colors shadow-lg hover:shadow-purple-300"
-            >
-              <Mail size={24} />
-              Email Me
-            </a>
-            <a
-              href="https://www.linkedin.com/in/anshul-gupta-64a033283/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors"
-            >
-              <Linkedin size={24} />
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/Anshulgupta280104"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors"
-            >
-              <Github size={24} />
-              GitHub
-            </a>
-          </div>
-        </div>
-      </section>
+     {/* Contact Section */}
+<section id="contact" className="py-20 px-4 bg-white">
+  <div className="max-w-3xl mx-auto text-center">
+
+    <h2 className="text-4xl font-bold mb-8 text-gray-900">
+      Let's Connect
+    </h2>
+
+    <p className="text-xl text-gray-700 mb-8">
+      I'm passionate about building innovative solutions, contributing to
+      open source, and organizing impactful tech events. Always open to
+      collaborating on exciting projects and opportunities.
+    </p>
+
+    <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6">
+
+      <a
+        href="mailto:anshulgupta282004@gmail.com"
+        className="flex items-center justify-center gap-3 bg-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-purple-700 transition-colors shadow-lg hover:shadow-purple-300"
+      >
+        <Mail size={24} />
+        Email Me
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/anshul-gupta-64a033283/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-3 bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors"
+      >
+        <Linkedin size={24} />
+        LinkedIn
+      </a>
+
+      <a
+        href="https://github.com/Anshulgupta280104"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-3 bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors"
+      >
+        <Github size={24} />
+        GitHub
+      </a>
+
+      <a
+        href="https://x.com/AnshulBuildss"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-3 bg-white text-purple-600 border-2 border-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors"
+      >
+        <Twitter size={24} />
+        Twitter
+      </a>
+
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-purple-100 py-8 px-4 border-t border-purple-200">
