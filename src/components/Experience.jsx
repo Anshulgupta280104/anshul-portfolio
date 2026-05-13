@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Briefcase, Code, TrendingUp, Users, Layout, Zap } from 'lucide-react';
+import gsap from 'gsap';
 
 const AnimatedCounter = ({ target, duration = 2000, suffix = '%' }) => {
   const [count, setCount] = useState(0);
@@ -39,6 +40,9 @@ const AnimatedCounter = ({ target, duration = 2000, suffix = '%' }) => {
 };
 
 export default function Experience() {
+  const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+
   const metrics = [
     { icon: <Zap size={24} />, value: 40, label: 'Efficiency Boost' },
     { icon: <Layout size={24} />, value: 30, label: 'Usability Gain' },
@@ -46,48 +50,84 @@ export default function Experience() {
     { icon: <Users size={24} />, value: 45, label: 'Team Efficiency' },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(sectionRef.current.querySelector('h2'),
+        { opacity: 0, y: 50, filter: 'blur(10px)' },
+        {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          }
+        }
+      );
+
+      gsap.fromTo(contentRef.current,
+        { opacity: 0, y: 100, filter: 'blur(15px)' },
+        {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%',
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="experience" className="py-24 px-4 relative z-10">
-      <div className="max-w-7xl mx-auto">
+    <section id="experience" className="py-24 px-4 relative z-10" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto transform-gpu">
         <h2 className="text-4xl font-bold mb-16 text-center text-gradient">Professional Experience</h2>
-        
-        <div className="relative">
+
+        <div className="relative" ref={contentRef}>
           {/* Vertical Timeline Line */}
           <div className="hidden md:block absolute left-[2.25rem] top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-transparent rounded-full opacity-30 dark:opacity-50"></div>
 
           <div className="relative md:pl-24 mb-12">
             {/* Timeline node */}
-            <div className="hidden md:flex absolute left-[15px] top-8 w-12 h-12 bg-white dark:bg-gray-900 border-4 border-purple-500 rounded-full items-center justify-center z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]">
+            <div className="hidden md:flex absolute left-[15px] top-8 w-12 h-12 bg-white dark:bg-zinc-900 border-4 border-purple-500 rounded-full items-center justify-center z-10 shadow-[0_0_15px_rgba(168,85,247,0.5)]">
               <Briefcase size={20} className="text-purple-600 dark:text-purple-400" />
             </div>
 
-            <div className="glass-card p-6 sm:p-10 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:hover:shadow-purple-900/20">
+            <div className="glass-card p-6 sm:p-10 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)] group">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2">
                     Software Developer Intern
                   </h3>
                   <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold">Commudle</p>
                 </div>
                 <div className="text-left md:text-right flex flex-col gap-2 md:items-end">
-                  <span className="inline-block px-5 py-2 bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-200 rounded-full text-sm font-bold tracking-wide">
+                  <span className="inline-block px-5 py-2 bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-200 rounded-full text-sm font-bold tracking-wide shadow-sm">
                     June 2025 – August 2025
                   </span>
-                  <p className="text-gray-500 dark:text-gray-400 font-medium">New Delhi, India</p>
+                  <p className="text-zinc-500 dark:text-zinc-400 font-medium">New Delhi, India</p>
                 </div>
               </div>
 
               {/* Metrics Grid */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {metrics.map((metric, idx) => (
-                  <div key={idx} className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md p-6 rounded-2xl border border-gray-100 dark:border-gray-700 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-purple-900/10 group">
-                    <div className="flex justify-center mb-4 text-purple-500 dark:text-purple-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors group-hover:scale-110 duration-300">
+                  <div key={idx} className="bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md p-6 rounded-2xl border border-zinc-100 dark:border-zinc-700/50 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] group/metric">
+                    <div className="flex justify-center mb-4 text-purple-500 dark:text-purple-400 group-hover/metric:text-blue-500 dark:group-hover/metric:text-blue-400 transition-colors group-hover/metric:scale-110 duration-300">
                       {metric.icon}
                     </div>
                     <div className="mb-1">
                       <AnimatedCounter target={metric.value} />
                     </div>
-                    <p className="text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider">{metric.label}</p>
+                    <p className="text-sm font-semibold text-zinc-600 dark:text-zinc-300 uppercase tracking-wider">{metric.label}</p>
                   </div>
                 ))}
               </div>
@@ -98,8 +138,8 @@ export default function Experience() {
                     <Code size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Feature Development</h4>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Developed and deployed newsletter preview feature with notifications, tooltips, and labels for enhanced accessibility.</p>
+                    <h4 className="text-xl font-bold mb-2 text-zinc-900 dark:text-zinc-100">Feature Development</h4>
+                    <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">Developed and deployed newsletter preview feature with notifications, tooltips, and labels for enhanced accessibility.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-5">
@@ -107,8 +147,8 @@ export default function Experience() {
                     <Layout size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Responsive Design</h4>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Delivered mobile-first designs for campaign pages and strategically positioned help sections.</p>
+                    <h4 className="text-xl font-bold mb-2 text-zinc-900 dark:text-zinc-100">Responsive Design</h4>
+                    <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">Delivered mobile-first designs for campaign pages and strategically positioned help sections.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-5">
@@ -116,8 +156,8 @@ export default function Experience() {
                     <TrendingUp size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">API Integration</h4>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Collaborated with APIs to integrate backend services, ensuring <strong className="text-purple-600 dark:text-purple-400">20% faster</strong> data flow.</p>
+                    <h4 className="text-xl font-bold mb-2 text-zinc-900 dark:text-zinc-100">API Integration</h4>
+                    <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">Collaborated with APIs to integrate backend services, ensuring <strong className="text-purple-600 dark:text-purple-400 font-bold">20% faster</strong> data flow.</p>
                   </div>
                 </div>
               </div>

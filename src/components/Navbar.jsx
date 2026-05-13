@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   const navItems = ['About', 'Experience', 'Projects', 'Skills', 'Contact'];
 
@@ -34,9 +36,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+    <div className="fixed top-0 left-0 w-full z-50 flex justify-center mt-4 px-4 transition-all duration-500 pointer-events-none">
+      <nav className={`pointer-events-auto transition-all duration-500 ease-in-out ${scrolled ? 'w-full max-w-5xl rounded-full glass-nav shadow-lg py-3 px-6' : 'w-full max-w-7xl bg-transparent py-5 px-6'}`}>
+        <div className="flex justify-between items-center w-full">
           <div className="text-2xl font-bold text-gradient cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
             Anshul Gupta
           </div>
@@ -49,58 +51,56 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 <button
                   key={item}
                   onClick={() => scrollToSection(id)}
-                  className={`transition-colors font-medium relative ${activeSection === id ? 'text-purple-600 dark:text-purple-400' : 'text-gray-600 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400'}`}
+                  className={`transition-colors font-medium relative group ${activeSection === id ? 'text-purple-600 dark:text-purple-400' : 'text-zinc-600 hover:text-purple-600 dark:text-zinc-400 dark:hover:text-purple-400'}`}
                 >
                   {item}
-                  {activeSection === id && (
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-fade-in-up"></span>
-                  )}
+                  <span className={`absolute -bottom-1 left-0 h-[2px] bg-purple-600 dark:bg-purple-400 rounded-full transition-all duration-300 ${activeSection === id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </button>
               );
             })}
             <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors text-zinc-600 dark:text-zinc-300 hover-glow"
               aria-label="Toggle Dark Mode"
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
             <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 text-gray-600 dark:text-gray-300"
+              onClick={toggleTheme}
+              className="p-2 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 rounded-full"
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <button
-              className="text-gray-600 dark:text-gray-300"
+              className="text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 p-2 rounded-full"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden glass absolute top-full left-0 w-full border-t border-gray-200 dark:border-gray-800">
-          <div className="py-2 px-4 space-y-1">
-            {navItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-gray-100 font-medium transition-colors"
-              >
-                {item}
-              </button>
-            ))}
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden absolute top-[120%] left-0 w-full glass-card rounded-2xl overflow-hidden shadow-2xl origin-top animate-fade-in-up">
+            <div className="py-2 px-2 space-y-1">
+              {navItems.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="block w-full text-left px-4 py-3 rounded-xl hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 text-zinc-900 dark:text-zinc-100 font-medium transition-colors"
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+    </div>
   );
 }
