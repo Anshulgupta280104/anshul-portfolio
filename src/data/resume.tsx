@@ -5,7 +5,181 @@ import { Typescript } from "@/components/ui/svgs/typescript";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 
-export const DATA = {
+export interface HeroCTA {
+  readonly label: string;
+  readonly href: string;
+  readonly variant: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+}
+
+export interface Metric {
+  readonly value: string;
+  readonly label: string;
+}
+
+export interface Hero {
+  readonly headline: string;
+  readonly subheadline: string;
+  readonly intro: string;
+  readonly metrics: readonly Metric[];
+  readonly ctas: readonly HeroCTA[];
+}
+
+export interface SEO {
+  readonly metaTitle: string;
+  readonly metaDescription: string;
+  readonly keywords: readonly string[];
+  readonly ogDescription: string;
+}
+
+export interface SkillCategory {
+  readonly category: string;
+  readonly skills: readonly string[];
+}
+
+export interface Skill {
+  readonly name: string;
+  readonly icon: React.ComponentType<any>;
+}
+
+export interface ProductThinkingItem {
+  readonly title: string;
+  readonly description: string;
+}
+
+export interface Achievement {
+  readonly title: string;
+  readonly metric: string;
+  readonly description: string;
+}
+
+export interface WhyHireMeItem {
+  readonly question: string;
+  readonly answer: string;
+}
+
+export interface ContactSocialItem {
+  readonly name: string;
+  readonly url: string;
+  readonly icon: React.ComponentType<any>;
+  readonly navbar: boolean;
+}
+
+export interface Socials {
+  readonly [key: string]: ContactSocialItem;
+  readonly GitHub: ContactSocialItem;
+  readonly X: ContactSocialItem;
+  readonly LinkedIn: ContactSocialItem;
+  readonly email: ContactSocialItem;
+  readonly Google: ContactSocialItem;
+  readonly Portfolio: ContactSocialItem;
+}
+
+export interface Contact {
+  readonly email: string;
+  readonly tel: string;
+  readonly social: Socials;
+}
+
+export interface WorkItem {
+  readonly company: string;
+  readonly href: string;
+  readonly badges: readonly string[];
+  readonly location: string;
+  readonly title: string;
+  readonly logoUrl: string;
+  readonly start: string;
+  readonly end?: string;
+  readonly description: string;
+}
+
+export interface EducationItem {
+  readonly school: string;
+  readonly href: string;
+  readonly degree: string;
+  readonly logoUrl: string;
+  readonly start: string;
+  readonly end: string;
+}
+
+export interface ProjectLink {
+  readonly type: string;
+  readonly href: string;
+  readonly icon: React.ReactNode;
+}
+
+export interface ProjectItem {
+  readonly title: string;
+  readonly href: string;
+  readonly dates: string;
+  readonly active: boolean;
+  readonly description: string;
+  readonly technologies: readonly string[];
+  readonly links: readonly ProjectLink[];
+  readonly image: string;
+  readonly video: string;
+}
+
+export interface CareerLink {
+  readonly title: string;
+  readonly href: string;
+  readonly icon: React.ReactNode;
+}
+
+export interface CareerItem {
+  readonly title: string;
+  readonly dates: string;
+  readonly location: string;
+  readonly description: string;
+  readonly win?: string;
+  readonly image?: string;
+  readonly galleryImage?: string;
+  readonly galleryImages?: readonly string[];
+  readonly dialogImage?: string;
+  readonly mediaHeading?: string;
+  readonly links?: readonly CareerLink[];
+}
+
+export interface HackathonLink {
+  readonly title: string;
+  readonly href: string;
+  readonly icon: React.ReactNode;
+}
+
+export interface HackathonItem {
+  readonly title: string;
+  readonly dates: string;
+  readonly image?: string;
+  readonly location?: string;
+  readonly description?: string;
+  readonly links?: readonly HackathonLink[];
+}
+
+export interface ResumeData {
+  readonly name: string;
+  readonly initials: string;
+  readonly url: string;
+  readonly location: string;
+  readonly locationLink: string;
+  readonly description: string;
+  readonly summary: string;
+  readonly avatarUrl: string;
+  readonly hero: Hero;
+  readonly seo: SEO;
+  readonly skillCategories: readonly SkillCategory[];
+  readonly skills: readonly Skill[];
+  readonly productThinking: readonly ProductThinkingItem[];
+  readonly achievements: readonly Achievement[];
+  readonly whyHireMe: readonly WhyHireMeItem[];
+  readonly navbar: readonly any[];
+  readonly contact: Contact;
+  readonly work: readonly WorkItem[];
+  readonly education: readonly EducationItem[];
+  readonly projects: readonly ProjectItem[];
+  readonly careerTimeline: readonly CareerItem[];
+  readonly hackathons: readonly HackathonItem[];
+}
+
+export const DATA: ResumeData = {
   name: "Anshul Gupta",
   initials: "AG",
   url: "https://anshul-portfolio-alpha.vercel.app",
@@ -587,4 +761,4 @@ export const DATA = {
     },
   ],
   hackathons: [],
-} as const;
+};

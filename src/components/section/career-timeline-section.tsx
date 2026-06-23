@@ -3,12 +3,10 @@
 
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { DATA } from "@/data/resume";
+import { DATA, CareerItem } from "@/data/resume";
 import { Timeline, TimelineItem, TimelineConnectItem } from "@/components/timeline";
 import { TimelineMediaDialog } from "@/components/section/timeline-media-dialog";
 import { useRef } from "react";
-
-type CareerItem = (typeof DATA.careerTimeline)[number];
 
 function TimelineMedia({
   title,
@@ -68,15 +66,15 @@ function TimelineMedia({
 
 function CareerTimelineRow({ item }: { item: CareerItem }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const galleryImage = "galleryImage" in item ? item.galleryImage : undefined;
-  const galleryImages = "galleryImages" in item ? item.galleryImages : undefined;
-  const dialogImage = "dialogImage" in item ? item.dialogImage : undefined;
-  const mediaHeading = "mediaHeading" in item ? item.mediaHeading : undefined;
- const hasInlineMedia = !!(
-  galleryImage ||
-  (Array.isArray(galleryImages) && galleryImages.length > 0) ||
-  dialogImage
-);
+  const galleryImage = item.galleryImage;
+  const galleryImages = item.galleryImages;
+  const dialogImage = item.dialogImage;
+  const mediaHeading = item.mediaHeading;
+  const hasInlineMedia = !!(
+    galleryImage ||
+    (Array.isArray(galleryImages) && galleryImages.length > 0) ||
+    dialogImage
+  );
 
   return (
     <TimelineItem className="w-full flex items-start justify-between gap-6 sm:gap-10">
