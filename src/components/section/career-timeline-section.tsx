@@ -72,11 +72,11 @@ function CareerTimelineRow({ item }: { item: CareerItem }) {
   const galleryImages = "galleryImages" in item ? item.galleryImages : undefined;
   const dialogImage = "dialogImage" in item ? item.dialogImage : undefined;
   const mediaHeading = "mediaHeading" in item ? item.mediaHeading : undefined;
-  const hasInlineMedia = !!(
-    galleryImage ||
-    galleryImages?.length ||
-    dialogImage
-  );
+ const hasInlineMedia = !!(
+  galleryImage ||
+  (Array.isArray(galleryImages) && galleryImages.length > 0) ||
+  dialogImage
+);
 
   return (
     <TimelineItem className="w-full flex items-start justify-between gap-6 sm:gap-10">
